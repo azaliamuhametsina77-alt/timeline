@@ -1,0 +1,319 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #fbfbfb;
+  font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.tl-outer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: #fbfbfb;
+}
+
+.tl-wrap {
+  width: min(860px, calc(100vw - 32px));
+  padding: 8px 0 28px;
+  margin: 0 auto;
+  background: #fbfbfb;
+}
+
+.tl-item {
+  display: flex;
+  gap: 0;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+.tl-left {
+  width: 90px;
+  min-width: 90px;
+  text-align: right;
+  padding-right: 16px;
+  padding-top: 14px;
+}
+
+.tl-date {
+  font-size: 12px;
+  font-weight: 500;
+  color: #8B8F97;
+  line-height: 1.3;
+}
+
+.tl-spine {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20px;
+  min-width: 20px;
+}
+
+.tl-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-top: 17px;
+  flex-shrink: 0;
+  transition: transform 0.15s ease;
+}
+
+.tl-item:hover .tl-dot {
+  transform: scale(1.35);
+}
+
+.tl-line {
+  width: 1px;
+  flex: 1;
+  background: #D9DDE3;
+}
+
+.tl-right {
+  flex: 1;
+  padding: 10px 0 10px 16px;
+}
+
+.tl-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #20242B;
+  margin: 0 0 4px;
+  line-height: 1.4;
+}
+
+.tl-desc {
+  font-size: 13px;
+  color: #5F6670;
+  margin: 0;
+  line-height: 1.55;
+}
+
+.tl-desc a {
+  color: #685DB2;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.tl-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 999px;
+  margin-bottom: 6px;
+}
+
+.badge-red  { background: #FCEBEB; color: #A32D2D; }
+.badge-blue { background: #E6F1FB; color: #0C447C; }
+.badge-gray { background: #F1EFE8; color: #5F5E5A; }
+.badge-amber{ background: #FAEEDA; color: #633806; }
+.badge-teal { background: #E1F5EE; color: #085041; }
+
+@media (max-width: 640px) {
+  .tl-wrap {
+    width: calc(100vw - 20px);
+    padding: 6px 0 22px;
+  }
+
+  .tl-left {
+    width: 74px;
+    min-width: 74px;
+    padding-right: 12px;
+  }
+
+  .tl-date {
+    font-size: 11px;
+  }
+
+  .tl-right {
+    padding-left: 12px;
+  }
+
+  .tl-title {
+    font-size: 13px;
+  }
+
+  .tl-desc {
+    font-size: 12px;
+  }
+}
+</style>
+
+<div class="tl-outer">
+  <div class="tl-wrap">
+
+    <div class="tl-item" onclick="sendPrompt('Расскажи подробнее о начале войны в Судане 15 апреля 2023 года')">
+      <div class="tl-left"><span class="tl-date">Апр 2023</span></div>
+      <div class="tl-spine"><div class="tl-dot" style="background:#E24B4A"></div><div class="tl-line"></div></div>
+      <div class="tl-right">
+        <span class="tl-badge badge-red">Начало войны</span>
+        <p class="tl-title">15 апреля — первые бои в Хартуме</p>
+        <p class="tl-desc">СБР <a href="https://www.reuters.com/world/africa/heavy-gunfire-heard-south-sudanese-capital-khartoum-witnesses-2023-04-15/" target="_blank" rel="noopener noreferrer">заявляют</a> о захвате президентского дворца, аэропорта и других ключевых объектов в столице, хотя армия это оспаривает. В ответ армия <a href="https://www.reuters.com/world/africa/sudan-military-rivals-fight-power-killing-least-25-2023-04-16/" target="_blank" rel="noopener noreferrer">наносит</a> авиаудары по позициям СБР. Аэропорт <a href="https://www.reuters.com/world/africa/qatar-airways-suspends-flights-sudan-due-closure-khartoum-international-airport-2023-04-16/" target="_blank" rel="noopener noreferrer">прекращает</a> работу в первый же день.</p>
+      </div>
+    </div>
+
+    <div class="tl-item" onclick="sendPrompt('Что произошло в Дарфуре летом 2023 года в войне в Судане?')">
+      <div class="tl-left"><span class="tl-date">Июн 2023</span></div>
+      <div class="tl-spine"><div class="tl-dot" style="background:#E24B4A"></div><div class="tl-line"></div></div>
+      <div class="tl-right">
+        <span class="tl-badge badge-red">Атаки на мирных</span>
+        <p class="tl-title">Массовые убийства масалит в Западном Дарфуре</p>
+        <p class="tl-desc">СБР <a href="https://www.reuters.com/world/africa/darfur-cities-under-fire-sudanese-war-spreads-2023-06-14/" target="_blank" rel="noopener noreferrer">убивают</a> губернатора Западного Дарфура. Арабские ополчения и союзные им силы <a href="https://www.reuters.com/investigates/special-report/sudan-politics-darfur-violence/" target="_blank" rel="noopener noreferrer">атакуют</a> масалит в Эль-Генейне. Международные структуры и США <a href="https://www.reuters.com/world/africa/united-nations-united-states-ring-alarm-west-darfur-violence-2023-06-16/" target="_blank" rel="noopener noreferrer">предупреждают</a> об этническом насилии и риске новых массовых преступлений.</p>
+      </div>
+    </div>
+
+    <div class="tl-item" onclick="sendPrompt('Что произошло в Дарфуре осенью 2023 года в войне в Судане?')">
+      <div class="tl-left"><span class="tl-date">Окт–Нояб 2023</span></div>
+      <div class="tl-spine"><div class="tl-dot" style="background:#E24B4A"></div><div class="tl-line"></div></div>
+      <div class="tl-right">
+        <span class="tl-badge badge-red">Падение Дарфура</span>
+        <p class="tl-title">СБР берут столицы Южного и Центрального Дарфура</p>
+        <p class="tl-desc">СБР <a href="https://www.reuters.com/world/africa/paramilitary-rsf-say-they-have-seized-sudans-second-city-2023-10-26/" target="_blank" rel="noopener noreferrer">берут</a> Ньялу (столицу Южного Дарфура) и Залингей (столица Центрального Дарфура). В следующие недели они <a href="https://acleddata.com/report/two-years-war-sudan-how-saf-gaining-upper-hand" target="_blank" rel="noopener noreferrer">закрепляют</a> контроль над большей частью Дарфура: к ноябрю под их контролем оказываются четыре из пяти столиц региона. У армии <a href="https://acleddata.com/report/two-years-war-sudan-how-saf-gaining-upper-hand" target="_blank" rel="noopener noreferrer">остается</a> только Эль-Фашир.</p>
+      </div>
+    </div>
+
+    <div class="tl-item" onclick="sendPrompt('Что произошло с Вад-Мадани в декабре 2023 года в войне в Судане?')">
+      <div class="tl-left"><span class="tl-date">Дек 2023</span></div>
+      <div class="tl-spine"><div class="tl-dot" style="background:#E24B4A"></div><div class="tl-line"></div></div>
+      <div class="tl-right">
+        <span class="tl-badge badge-red">Потеря центра</span>
+        <p class="tl-title">Падение Вад-Мадани — крупного гуманитарного узла</p>
+        <p class="tl-desc">Армия быстро <a href="https://www.reuters.com/world/africa/sudanese-army-says-its-forces-have-withdrawn-wad-madani-city-statement-2023-12-19/" target="_blank" rel="noopener noreferrer">оставляет</a> столицу аль-Джазиры, где укрывались сотни тысяч перемещенных людей. После захода СБР <a href="https://www.reuters.com/world/africa/sudanese-army-says-its-forces-have-withdrawn-wad-madani-city-statement-2023-12-19/" target="_blank" rel="noopener noreferrer">начинается</a> массовое бегство мирных жителей, а доверие к способности армии защищать центр страны <a href="https://acleddata.com/report/two-years-war-sudan-how-saf-gaining-upper-hand" target="_blank" rel="noopener noreferrer">падает</a>.</p>
+      </div>
+    </div>
+
+    <div class="tl-item" onclick="sendPrompt('Расскажи про мобилизацию армии Судана в январе 2024 года')">
+      <div class="tl-left"><span class="tl-date">Янв 2024</span></div>
+      <div class="tl-spine"><div class="tl-dot" style="background:#185FA5"></div><div class="tl-line"></div></div>
+      <div class="tl-right">
+        <span class="tl-badge badge-blue">Мобилизация армии</span>
+        <p class="tl-title">Аль-Бурхан объявляет мобилизацию</p>
+        <p class="tl-desc">После призыва Бурхана в северном и восточном Судане <a href="https://acleddata.com/report/two-years-war-sudan-how-saf-gaining-upper-hand" target="_blank" rel="noopener noreferrer">открываются</a> учебные лагеря для добровольцев. Вокруг армии начинает <a href="https://www.reuters.com/world/africa/sudans-burhan-says-no-reconciliation-with-paramilitary-rsf-2024-01-05/" target="_blank" rel="noopener noreferrer">оформляться</a> «народное сопротивление», а в следующие месяцы к борьбе против СБР <a href="https://acleddata.com/update/april-2024-one-year-war-sudan" target="_blank" rel="noopener noreferrer">подключаются</a> этнические ополчения и бывшие повстанцы.</p>
+      </div>
+    </div>
+
+    <div class="tl-item" onclick="sendPrompt('Расскажи про бои за Эль-Фашер в 2024 году')">
+      <div class="tl-left"><span class="tl-date">Апр 2024</span></div>
+      <div class="tl-spine"><div class="tl-dot" style="background:#E24B4A"></div><div class="tl-line"></div></div>
+      <div class="tl-right">
+        <span class="tl-badge badge-red">Осада Эль-Фашера</span>
+        <p class="tl-title">СБР начинают штурм последней столицы Дарфура</p>
+        <p class="tl-desc">Дарфурские объединенные силы и народ загава <a href="https://acleddata.com/report/two-years-war-sudan-how-saf-gaining-upper-hand" target="_blank" rel="noopener noreferrer">мобилизуют</a> защитников. Город <a href="https://www.reuters.com/world/africa/un-security-council-concerned-over-imminent-attack-sudans-north-darfur-2024-04-27/" target="_blank" rel="noopener noreferrer">превращается</a> в главный фронт на западе страны и надолго <a href="https://acleddata.com/report/two-years-war-sudan-how-saf-gaining-upper-hand" target="_blank" rel="noopener noreferrer">сковывает</a> силы СБР.</p>
+      </div>
+    </div>
+
+    <div class="tl-item" onclick="sendPrompt('Расскажи подробнее про переход Абу Акла Кайкала на сторону ВСС')">
+      <div class="tl-left"><span class="tl-date">Окт 2024</span></div>
+      <div class="tl-spine"><div class="tl-dot" style="background:#BA7517"></div><div class="tl-line"></div></div>
+      <div class="tl-right">
+        <span class="tl-badge badge-amber">Переломный момент</span>
+        <p class="tl-title">Предательство</p>
+        <p class="tl-desc">Ключевой командир СБР в центре страны <a href="https://www.reuters.com/world/africa/sudanese-army-welcomes-first-defection-rsf-central-commander-2024-10-20/" target="_blank" rel="noopener noreferrer">переходит</a> к армии. СБР мстят, <a href="https://www.reuters.com/world/africa/sudans-rsf-attacks-east-gezira-villages-following-defection-2024-10-22/" target="_blank" rel="noopener noreferrer">атакуя</a> шукрия в Аль-Джазире, и тем самым еще сильнее <a href="https://acleddata.com/report/defection-and-violence-against-civilians-sudans-al-jazirah-state-november-2024" target="_blank" rel="noopener noreferrer">подталкивают</a> местные силы на сторону армии.</p>
+      </div>
+    </div>
+
+    <div class="tl-item" onclick="sendPrompt('Как ВСС вернули себе аль-Джазиру и Сеннар в конце 2024 года?')">
+      <div class="tl-left"><span class="tl-date">Ноя 2024</span></div>
+      <div class="tl-spine"><div class="tl-dot" style="background:#185FA5"></div><div class="tl-line"></div></div>
+      <div class="tl-right">
+        <span class="tl-badge badge-blue">Наступление армии</span>
+        <p class="tl-title">Армия прорывает фронт в Сеннаре</p>
+        <p class="tl-desc">Армия <a href="https://acleddata.com/report/two-years-war-sudan-how-saf-gaining-upper-hand" target="_blank" rel="noopener noreferrer">выходит</a> из части осажденных баз, <a href="https://acleddata.com/report/two-years-war-sudan-how-saf-gaining-upper-hand" target="_blank" rel="noopener noreferrer">режет</a> линии снабжения СБР и начинает <a href="https://acleddata.com/report/two-years-war-sudan-how-saf-gaining-upper-hand" target="_blank" rel="noopener noreferrer">вытеснять</a> противника из центрального Судана.</p>
+      </div>
+    </div>
+
+    <div class="tl-item" onclick="sendPrompt('Расскажи про возвращение Вад-Мадани армией Судана в январе 2025 года')">
+      <div class="tl-left"><span class="tl-date">Янв 2025</span></div>
+      <div class="tl-spine"><div class="tl-dot" style="background:#185FA5"></div><div class="tl-line"></div></div>
+      <div class="tl-right">
+        <span class="tl-badge badge-blue">Возврат центра</span>
+        <p class="tl-title">Армия возвращает Вад-Мадани</p>
+        <p class="tl-desc">Армия снова <a href="https://www.reuters.com/world/africa/celebrations-sudans-wad-madani-army-takes-over-strategic-city-2025-01-13/" target="_blank" rel="noopener noreferrer">входит</a> в столицу аль-Джазиры. Возвращение крупнейшего узла в центре страны <a href="https://www.reuters.com/world/africa/celebrations-sudans-wad-madani-army-takes-over-strategic-city-2025-01-13/" target="_blank" rel="noopener noreferrer">становится</a> первым крупным переломом в пользу армии после долгой серии неудач.</p>
+      </div>
+    </div>
+
+    <div class="tl-item" onclick="sendPrompt('Расскажи про взятие Хартума армией Судана в марте 2025 года')">
+      <div class="tl-left"><span class="tl-date">Мар 2025</span></div>
+      <div class="tl-spine"><div class="tl-dot" style="background:#1D9E75"></div><div class="tl-line"></div></div>
+      <div class="tl-right">
+        <span class="tl-badge badge-teal">Перелом в войне</span>
+        <p class="tl-title">26 марта — армия объявляет об освобождении Хартума</p>
+        <p class="tl-desc">После взятия президентского дворца армия <a href="https://www.reuters.com/world/africa/sudan-army-surrounds-khartoum-airport-nearby-areas-two-military-sources-tell-2025-03-26/" target="_blank" rel="noopener noreferrer">вытесняет</a> СБР из большей части Хартума. СБР называют отход «стратегическим», но бои в столичном регионе <a href="https://www.reuters.com/world/africa/sudan-army-surrounds-khartoum-airport-nearby-areas-two-military-sources-tell-2025-03-26/" target="_blank" rel="noopener noreferrer">продолжаются</a>.</p>
+      </div>
+    </div>
+
+    <div class="tl-item" onclick="sendPrompt('Расскажи про атаки дронов по Порт-Судану в мае 2025 года')">
+      <div class="tl-left"><span class="tl-date">Май 2025</span></div>
+      <div class="tl-spine"><div class="tl-dot" style="background:#E24B4A"></div><div class="tl-line"></div></div>
+      <div class="tl-right">
+        <span class="tl-badge badge-red">Новый фронт</span>
+        <p class="tl-title">4–5 мая — СБР впервые бьют по Порт-Судану дронами</p>
+        <p class="tl-desc">Под удар <a href="https://www.reuters.com/world/africa/sudanese-rsf-conducts-first-drone-attack-port-sudan-says-army-spokesperson-2025-05-04/" target="_blank" rel="noopener noreferrer">попадают</a> объекты в районе аэропорта, военная авиабаза и топливные хранилища. Война впервые <a href="https://www.reuters.com/world/africa/sudanese-rsf-conducts-first-drone-attack-port-sudan-says-army-spokesperson-2025-05-04/" target="_blank" rel="noopener noreferrer">достигает</a> временной столицы Судана — именно сюда перебрался глава армии Бурхан. Также здесь базировались гуманитарные организации, удары <a href="https://www.reuters.com/world/africa/explosions-heard-sudanese-city-port-sudan-reuters-witness-reports-2025-05-06/" target="_blank" rel="noopener noreferrer">поставили</a> под угрозу поставки помощи.</p>
+      </div>
+    </div>
+
+    <div class="tl-item" onclick="sendPrompt('Расскажи про параллельное правительство СБР в июле 2025 года')">
+      <div class="tl-left"><span class="tl-date">Июл 2025</span></div>
+      <div class="tl-spine"><div class="tl-dot" style="background:#BA7517"></div><div class="tl-line"></div></div>
+      <div class="tl-right">
+        <span class="tl-badge badge-amber">Политический раскол</span>
+        <p class="tl-title">26 июля — СБР объявляют о параллельном правительстве</p>
+        <p class="tl-desc">Коалиция во главе с СБР <a href="https://www.reuters.com/world/africa/sudanese-coalition-led-by-paramilitary-rsf-announces-parallel-government-2025-07-26/" target="_blank" rel="noopener noreferrer">представляет</a> альтернативную власть на пресс-конференции в Ньяле.</p>
+      </div>
+    </div>
+
+    <div class="tl-item" onclick="sendPrompt('Расскажи про падение Эль-Фашира в октябре 2025 года')">
+      <div class="tl-left"><span class="tl-date">Окт 2025</span></div>
+      <div class="tl-spine"><div class="tl-dot" style="background:#E24B4A"></div><div class="tl-line"></div></div>
+      <div class="tl-right">
+        <span class="tl-badge badge-red">Падение Дарфура</span>
+        <p class="tl-title">26–27 октября — СБР берут Эль-Фашир</p>
+        <p class="tl-desc">После 18-месячной осады <a href="https://www.reuters.com/world/africa/sudanese-forces-capture-darfur-city-could-cement-countrys-split-2025-10-27/" target="_blank" rel="noopener noreferrer">падает</a> последний крупный оплот армии в Дарфуре.</p>
+      </div>
+    </div>
+
+    <div class="tl-item" onclick="sendPrompt('Расскажи про Бабанусу и Западный Кордофан в декабре 2025 года')">
+      <div class="tl-left"><span class="tl-date">Дек 2025</span></div>
+      <div class="tl-spine"><div class="tl-dot" style="background:#E24B4A"></div><div class="tl-line"></div></div>
+      <div class="tl-right">
+        <span class="tl-badge badge-red">Сдвиг фронта</span>
+        <p class="tl-title">1 декабря — СБР берут Бабанусу</p>
+        <p class="tl-desc">Армия это <a href="https://www.reuters.com/world/africa/sudans-rsf-paramilitary-says-it-took-control-babanusa-west-kordofan-2025-12-01/" target="_blank" rel="noopener noreferrer">оспаривает</a>, но падение города становится важным шагом к укреплению позиций СБР в Западном Кордофане. Центр тяжести войны окончательно <a href="https://acleddata.com/qa/qa-how-do-escalating-tensions-middle-east-affect-sudan-conflict" target="_blank" rel="noopener noreferrer">смещается</a> к Кордофану.</p>
+      </div>
+    </div>
+
+    <div class="tl-item" onclick="sendPrompt('Расскажи про прорыв осады аль-Даланджа в январе 2026 года')">
+      <div class="tl-left"><span class="tl-date">Янв 2026</span></div>
+      <div class="tl-spine"><div class="tl-dot" style="background:#185FA5"></div><div class="tl-line"></div></div>
+      <div class="tl-right">
+        <span class="tl-badge badge-blue">Контрудар армии</span>
+        <p class="tl-title">27 января — армия прорывает осаду аль-Даланджа</p>
+        <p class="tl-desc">После месяцев голода и изоляции армия <a href="https://www.reuters.com/world/africa/sudans-army-says-it-breaks-siege-southern-city-survivors-recount-hunger-death-2026-01-27/" target="_blank" rel="noopener noreferrer">снимает</a> осаду с одного из крупнейших городов Кордофана.</p>
+      </div>
+    </div>
+
+    <div class="tl-item" onclick="sendPrompt('Расскажи про выводы ООН по Эль-Фаширу в феврале 2026 года')">
+      <div class="tl-left"><span class="tl-date">Фев 2026</span></div>
+      <div class="tl-spine"><div class="tl-dot" style="background:#BA7517"></div><div class="tl-line"></div></div>
+      <div class="tl-right">
+        <span class="tl-badge badge-amber">Международная реакция</span>
+        <p class="tl-title">ООН: насилие в Эль-Фашире имеет признаки геноцида</p>
+        <p class="tl-desc">Следователи <a href="https://www.reuters.com/world/africa/rsf-actions-sudans-al-fashir-points-genocide-un-probe-says-2026-02-19/" target="_blank" rel="noopener noreferrer">фиксируют</a> массовые убийства, сексуальное насилие и другие тяжкие преступления против неарабских общин после захвата города СБР.</p>
+      </div>
+    </div>
+
+    <div class="tl-item" onclick="sendPrompt('Расскажи про обвинения Судана в адрес Эфиопии в марте 2026 года')">
+      <div class="tl-left"><span class="tl-date">Мар 2026</span></div>
+      <div class="tl-spine"><div class="tl-dot" style="background:#1D9E75"></div></div>
+      <div class="tl-right">
+        <span class="tl-badge badge-teal">Регионализация войны</span>
+        <p class="tl-title">Судан впервые обвиняет Эфиопию во вмешательстве</p>
+        <p class="tl-desc">МИД Судана <a href="https://www.reuters.com/business/media-telecom/sudan-accuses-ethiopia-first-time-involvement-its-civil-war-2026-03-03/" target="_blank" rel="noopener noreferrer">заявляет</a>, что дроны, атаковавшие страну в феврале и марте, запускались с территории Эфиопии.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
