@@ -112,10 +112,64 @@ html, body {
 .badge-amber{ background: #FAEEDA; color: #633806; }
 .badge-teal { background: #E1F5EE; color: #085041; }
 
+.tl-legend {
+  margin: 30px 0 24px 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+}
+
+.tl-legend-list {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px 18px;
+  width: 100%;
+}
+
+.tl-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  line-height: 1.35;
+  color: #5F6670;
+  white-space: nowrap;
+}
+
+.tl-legend-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.tl-legend-dot.red { background: #E24B4A; }
+.tl-legend-dot.blue { background: #185FA5; }
+.tl-legend-dot.amber { background: #BA7517; }
+.tl-legend-dot.gray { background: #8B8F97; }
+
 @media (max-width: 640px) {
   .tl-wrap {
     width: calc(100vw - 20px);
     padding: 6px 0 22px;
+  }
+
+  .tl-legend {
+    margin: 22px 0 18px 0;
+    padding: 0;
+  }
+
+  .tl-legend-list {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 7px 10px;
+  }
+
+  .tl-legend-item {
+    font-size: 11px;
+    white-space: normal;
   }
 
   .tl-left {
@@ -144,6 +198,15 @@ html, body {
 
 <div class="tl-outer">
   <div class="tl-wrap">
+
+    <div class="tl-legend" aria-label="Легенда таймлайна">
+      <div class="tl-legend-list">
+        <span class="tl-legend-item"><span class="tl-legend-dot red"></span>эскалация, атаки и насилие</span>
+        <span class="tl-legend-item"><span class="tl-legend-dot blue"></span>действия армии Судана</span>
+        <span class="tl-legend-item"><span class="tl-legend-dot amber"></span>политические и дипломатические заявления</span>
+        <span class="tl-legend-item"><span class="tl-legend-dot gray"></span>другое</span>
+      </div>
+    </div>
 
     <div class="tl-item" onclick="sendPrompt('Расскажи подробнее о начале войны в Судане 15 апреля 2023 года')">
       <div class="tl-left"><span class="tl-date">Апр 2023</span></div>
@@ -207,9 +270,9 @@ html, body {
 
     <div class="tl-item" onclick="sendPrompt('Расскажи подробнее про переход Абу Акла Кайкала на сторону ВСС')">
       <div class="tl-left"><span class="tl-date">Окт 2024</span></div>
-      <div class="tl-spine"><div class="tl-dot" style="background:#BA7517"></div><div class="tl-line"></div></div>
+      <div class="tl-spine"><div class="tl-dot" style="background:#E24B4A"></div><div class="tl-line"></div></div>
       <div class="tl-right">
-        <span class="tl-badge badge-amber">Переломный момент</span>
+        <span class="tl-badge badge-red">Переломный момент</span>
         <p class="tl-title">Предательство</p>
         <p class="tl-desc">Ключевой командир СБР в центре страны <a href="https://www.reuters.com/world/africa/sudanese-army-welcomes-first-defection-rsf-central-commander-2024-10-20/" target="_blank" rel="noopener noreferrer">переходит</a> к армии. СБР мстят, <a href="https://www.reuters.com/world/africa/sudans-rsf-attacks-east-gezira-villages-following-defection-2024-10-22/" target="_blank" rel="noopener noreferrer">атакуя</a> арабское племя шукрия в Аль-Джазире, и тем самым еще сильнее <a href="https://acleddata.com/report/defection-and-violence-against-civilians-sudans-al-jazirah-state-november-2024" target="_blank" rel="noopener noreferrer">подталкивают</a> местные силы на сторону армии.</p>
       </div>
@@ -237,9 +300,9 @@ html, body {
 
     <div class="tl-item" onclick="sendPrompt('Расскажи про взятие Хартума армией Судана в марте 2025 года')">
       <div class="tl-left"><span class="tl-date">Мар 2025</span></div>
-      <div class="tl-spine"><div class="tl-dot" style="background:#1D9E75"></div><div class="tl-line"></div></div>
+      <div class="tl-spine"><div class="tl-dot" style="background:#185FA5"></div><div class="tl-line"></div></div>
       <div class="tl-right">
-        <span class="tl-badge badge-teal">Перелом в войне</span>
+        <span class="tl-badge badge-blue">Перелом в войне</span>
         <p class="tl-title">26 марта — армия объявляет об освобождении Хартума</p>
         <p class="tl-desc">После взятия президентского дворца армия <a href="https://www.reuters.com/world/africa/sudan-army-surrounds-khartoum-airport-nearby-areas-two-military-sources-tell-2025-03-26/" target="_blank" rel="noopener noreferrer">вытесняет</a> СБР из большей части Хартума. СБР называют отход «стратегическим», но бои в столичном регионе <a href="https://www.reuters.com/world/africa/sudan-army-surrounds-khartoum-airport-nearby-areas-two-military-sources-tell-2025-03-26/" target="_blank" rel="noopener noreferrer">продолжаются</a>.</p>
       </div>
@@ -311,11 +374,11 @@ html, body {
     <div class="tl-item" onclick="sendPrompt('Расскажи про обвинения Судана в адрес Эфиопии в марте 2026 года')">
       <div class="tl-left"><span class="tl-date">Мар 2026</span></div>
       <div class="tl-spine">
-        <div class="tl-dot" style="background:#1D9E75"></div>
+        <div class="tl-dot" style="background:#BA7517"></div>
         <div class="tl-line"></div>
       </div>
       <div class="tl-right">
-        <span class="tl-badge badge-teal">Регионализация войны</span>
+        <span class="tl-badge badge-amber">Регионализация войны</span>
         <p class="tl-title">Судан впервые обвиняет Эфиопию во вмешательстве</p>
         <p class="tl-desc">МИД Судана <a href="https://www.reuters.com/business/media-telecom/sudan-accuses-ethiopia-first-time-involvement-its-civil-war-2026-03-03/" target="_blank" rel="noopener noreferrer">заявляет</a>, что дроны, атаковавшие страну в феврале и марте, запускались с территории Эфиопии.</p>
       </div>
