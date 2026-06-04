@@ -397,4 +397,81 @@ html, body {
     </div>
 
   </div>
+
+  <script>
+(function() {
+  function fixTimelinePopup() {
+    // Ищем iframe с таймлайном
+    const iframe = document.querySelector('iframe[src*="azaliamuhametsina77-alt.github.io/timeline"]');
+    if (!iframe) return;
+    
+    // Находим родительский pop-up Тильды
+    const popup = iframe.closest('.t-popup');
+    if (!popup) return;
+    
+    // Применяем стили напрямую к pop-up
+    popup.style.position = 'fixed';
+    popup.style.top = '0';
+    popup.style.left = '0';
+    popup.style.right = '0';
+    popup.style.bottom = '0';
+    popup.style.width = '100%';
+    popup.style.height = '100%';
+    popup.style.margin = '0';
+    popup.style.padding = '0';
+    popup.style.transform = 'none';
+    popup.style.borderRadius = '0';
+    popup.style.zIndex = '999999';
+    popup.style.overflow = 'hidden';
+    
+    // Контейнер внутри pop-up
+    const container = popup.querySelector('.t-popup__container');
+    if (container) {
+      container.style.position = 'relative';
+      container.style.width = '100%';
+      container.style.height = '100%';
+      container.style.margin = '0';
+      container.style.padding = '0';
+      container.style.borderRadius = '0';
+      container.style.overflow = 'auto';
+    }
+    
+    // Блок с iframe
+    const embed = document.getElementById('timelinePopupEmbedUnique');
+    if (embed) {
+      embed.style.width = '100%';
+      embed.style.height = '100%';
+      embed.style.borderRadius = '0';
+      embed.style.overflow = 'hidden';
+    }
+    
+    // Кнопка закрытия
+    const closeBtn = popup.querySelector('.t-popup__close, .t-popup__close-wrapper');
+    if (closeBtn) {
+      closeBtn.style.position = 'fixed';
+      closeBtn.style.top = '12px';
+      closeBtn.style.right = '12px';
+      closeBtn.style.width = '44px';
+      closeBtn.style.height = '44px';
+      closeBtn.style.zIndex = '1000000';
+      closeBtn.style.background = 'rgba(255,255,255,0.9)';
+      closeBtn.style.borderRadius = '50%';
+      closeBtn.style.display = 'flex';
+      closeBtn.style.alignItems = 'center';
+      closeBtn.style.justifyContent = 'center';
+      closeBtn.style.cursor = 'pointer';
+    }
+  }
+  
+  // Запускаем после загрузки DOM и с задержками (Тильда может подгрузить pop-up позже)
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', fixTimelinePopup);
+  } else {
+    fixTimelinePopup();
+  }
+  setTimeout(fixTimelinePopup, 500);
+  setTimeout(fixTimelinePopup, 1500);
+})();
+</script>
+
 </div>
