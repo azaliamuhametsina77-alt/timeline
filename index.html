@@ -398,3 +398,66 @@ html, body {
 
   </div>
 </div>
+
+<script>
+(function() {
+  const shortWords = [
+    'в', 'во', 'на', 'с', 'со', 'без', 'до', 'для', 'за', 'из', 'к', 'ко', 'по', 'под',
+    'при', 'про', 'у', 'о', 'об', 'от', 'через', 'между', 'перед', 'над', 'под',
+    'и', 'а', 'но', 'да', 'или', 'либо', 'что', 'чтобы', 'как', 'так', 'также', 'тоже',
+    'будто', 'словно', 'точно', 'лишь', 'только', 'почти', 'ведь', 'вот', 'вон', 'даже',
+    'неужели', 'разве', 'бы', 'б', 'же', 'ж', 'ли', 'ль', 'не', 'ни'
+  ];
+  // Сортируем по убыванию длины
+  const sorted = [...shortWords].sort((a,b)=>b.length-a.length);
+  // Строим регулярное выражение без \b, используем (^|\s) для границы слова слева
+  // и (?=\s|$|[,.;:!?]) для границы справа (пробел, конец строки или пунктуация)
+  const regex = new RegExp('(^|\\s)(' + sorted.join('|') + ')(\\s+)', 'gi');
+
+  function replaceInTextNode(node) {
+    if (node.nodeType === Node.TEXT_NODE && node.textContent.trim().length > 0) {
+      const original = node.textContent;
+      const replaced = original.replace(regex, (match, before, word, spaces) => {
+        // before — либо начало строки, либо пробел; word — найденный предлог; spaces — следующие пробелы
+        // Заменяем только последний пробел из spaces на неразрывный, остальные оставляем
+        if (spaces.length > 0) {
+          const newSpaces = spaces.slice(0, -1) + '\u00A0';
+          return before + word + newSpaces;
+        }
+        return match;
+      });
+      if (original !== replaced) node.textContent = replaced;
+    }
+  }
+
+  function walkAndReplace(root) {
+    const walker = document.createTreeWalker(
+      root,
+      NodeFilter.SHOW_TEXT,
+      {
+        acceptNode: (node) => {
+          // Пропускаем текст внутри скриптов, стилей и ссылок (чтобы не сломать href)
+          if (node.parentElement && /^(script|style|a)$/i.test(node.parentElement.tagName)) {
+            return NodeFilter.FILTER_SKIP;
+          }
+          return NodeFilter.FILTER_ACCEPT;
+        }
+      }
+    );
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(replaceInTextNode);
+  }
+
+  function apply() {
+    const container = document.querySelector('.tl-wrap');
+    if (container) walkAndReplace(container);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', apply);
+  } else {
+    apply();
+  }
+})();
+</script>
